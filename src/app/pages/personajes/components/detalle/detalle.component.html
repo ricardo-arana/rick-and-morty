@@ -1,0 +1,14 @@
+<div *ngIf="loading" class="d-flex align-items-center">
+    <strong>Loading...</strong>
+    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+  </div>
+<div *ngIf="!loading" class="row">
+    <div class="col-6">
+        <img [src]="peronsaje.image" />
+    </div>
+    <div class="col-6">
+        <h2>{{peronsaje.name}}</h2>
+        <h3> Estado: {{peronsaje.status }}</h3>
+        <h3> Genero: {{peronsaje.gender }}</h3>
+    </div>
+</div>
