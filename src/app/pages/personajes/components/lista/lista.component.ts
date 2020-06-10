@@ -7,11 +7,19 @@ import { PersonajesService } from '../../providers/personajes.service';
   styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
-
+  personaje: string[] = [];
   constructor(private personajeService: PersonajesService) { }
 
   ngOnInit(): void {
-    this.personajeService.getPersonajes();
+    this.personajeService.getPersonajes()
+    .subscribe((obj: any) => 
+      {
+        console.log(obj);
+        const listaPersonaje: any[] = obj.results;
+        this.personaje = listaPersonaje.map(
+          (personaje) => personaje.name
+        );
+      });
   }
 
 }

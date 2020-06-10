@@ -9,13 +9,8 @@ export class PersonajesService {
 
   constructor(private http: HttpClient) { }
 
-  getPersonajes() {
-    const url = `${environment.urlbase}${environment.endpoints.characters}`;
-    this.http.get(url).subscribe(
-      obj => {
-        console.log('RESULTADO: ', obj);
-      }
-    )
-    
+  getPersonajes(page: string = '1') {
+    const url = `${environment.urlbase}${environment.endpoints.characters}/?page=${page}`;
+    return this.http.get(url);
   }
 }
